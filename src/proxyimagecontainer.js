@@ -1,4 +1,4 @@
-function ProxyImageContainer(src, proxy) {
+function ProxyImageContainer(src, proxy, sameDomainProxy) {
     var script = document.createElement("script");
     var link = document.createElement("a");
     link.href = src;
@@ -7,7 +7,9 @@ function ProxyImageContainer(src, proxy) {
     this.image = new Image();
     var self = this;
     this.promise = new Promise(function(resolve, reject) {
-        self.image.crossOrigin = "Anonymous";
+        if (!sameDomainProxy) {
+            self.image.crossOrigin = "Anonymous";
+        }
         self.image.onload = resolve;
         self.image.onerror = reject;
 

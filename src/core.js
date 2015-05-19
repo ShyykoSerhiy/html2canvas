@@ -18,6 +18,7 @@ window.html2canvas = function(nodeList, options) {
     options.imageTimeout = typeof(options.imageTimeout) === "undefined" ? 10000 : options.imageTimeout;
     options.renderer = typeof(options.renderer) === "function" ? options.renderer : CanvasRenderer;
     options.strict = !!options.strict;
+    options.sameDomainProxy = typeof(options.sameDomainProxy) === "undefined" ? false : options.sameDomainProxy;
 
     if (typeof(nodeList) === "string") {
         if (typeof(options.proxy) !== "string") {
