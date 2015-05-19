@@ -70,7 +70,7 @@ ImageLoader.prototype.loadImage = function(imageData) {
         } else if (this.support.cors && !this.options.allowTaint && this.options.useCORS) {
             return new ImageContainer(src, true);
         } else if (this.options.proxy) {
-            return new ProxyImageContainer(src, this.options.proxy);
+            return new ProxyImageContainer(src, this.options.proxy, this.sameDomainProxy);
         } else {
             return new DummyImageContainer(src);
         }
